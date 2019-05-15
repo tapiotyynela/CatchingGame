@@ -22,12 +22,20 @@ difficulty_factor = 0,95
 catcher_color = 'red'
 catcher_width = 100
 catcher_height = 100
-catcher_start_x = canvas_width / 2 - canvas_width / 2
+catcher_start_x = canvas_width / 2 - catcher_width / 2
 catcher_start_y = canvas_height - catcher_height - 20
 catcher_start_x2 = catcher_start_x + catcher_width
 catcher_start_y2 = catcher_start_y + catcher_height
 
 catcher = c.create_arc(catcher_start_x, catcher_start_y, catcher_start_x2, catcher_start_y2,\
                        start=200, extent=140, style = 'arc', outline=catcher_color, width=3)
+
+game_font = font.nametofont('TkFixedFont')
+game_font.config(size=18)
+score = 0
+score_text = c.create_text(10, 10, anchor='nw', font=game_font, fill='darkblue', text='Score: ' + str(score))
+
+lives_remaining = 3
+lives_text = c.create_text(canvas_width - 10, 10, anchor='ne', font=game_font, fill='darkblue', text='Lives: ' + str(lives_remaining))
 
 root.mainloop()
